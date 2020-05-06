@@ -3,6 +3,7 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Board extends JPanel {
 
@@ -26,8 +27,8 @@ public class Board extends JPanel {
          kattams = new ArrayList<Kattam>();
 
 
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 7; j++) {
+        for (int j = 0; j < 7; j++) {
+            for (int i = 0; i < 7; i++) {
                 int currentOriginX, currentOriginY;
                 currentOriginX = getOriginX() + (i * getSide());
                 currentOriginY = getOriginY() + (j * getSide());
@@ -44,6 +45,10 @@ public class Board extends JPanel {
         }
         PlayerS s = new PlayerS(this);
         s.navigate();
+
+        for(int i = 0; i < kattams.size(); i++) {
+            //System.out.println(kattams.get(i));
+        }
 
     }
 
@@ -98,7 +103,7 @@ public class Board extends JPanel {
     protected int getSide() {
         if (myWidth > myHeight) {
             //Landscape
-            System.out.println("Width " + myWidth + "Height " + myHeight + "Sides " + myHeight / 7);
+            //System.out.println("Width " + myWidth + "Height " + myHeight + "Sides " + myHeight / 7);
             return myHeight / 7;
         }
         return -1;
