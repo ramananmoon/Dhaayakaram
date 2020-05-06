@@ -69,9 +69,8 @@ public class Board extends JPanel {
                     kattams.add(kattam);
             }
         }
-      /*  PlayerS s = new PlayerS(this);
+        PlayerS s = new PlayerS(this);
         s.navigate();
-*/
         PlayerN n = new PlayerN(this);
         n.navigate();
 /*
