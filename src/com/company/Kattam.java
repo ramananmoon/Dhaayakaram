@@ -55,7 +55,19 @@ protected boolean raise;
         return side;
     }
 
-    public void writeNum(int num){
+    public void writeNumS(int num){
+        g.drawString(num+"", originX+(side/2), originY + (side*3/4));
+    }
+
+    public void writeNumN(int num){
         g.drawString(num+"", originX+(side/2), originY + (side/4));
+    }
+
+    public void writeNumW(int num){
+        g.drawString(num+"", originX+(side/4), originY + (side/2));
+    }
+
+    public void writeNumE(int num){
+        g.drawString(num+"", originX+(side*3/4), originY + (side/2));
     }
 }
