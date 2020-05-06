@@ -8,10 +8,36 @@ import java.util.Arrays;
 public class Board extends JPanel {
 
     int myWidth, myHeight;
+    int newheight;
+    int newwidth;
+    int widthpadding;
+    int heightpadding;
 
     public Board(int myWidth, int myHeight) {
-        this.myWidth = myWidth;
-        this.myHeight = myHeight;
+        getPadding(myWidth,myHeight);
+    }
+
+    private void getPadding(int myWidth, int myHeight) {
+        if(myWidth>myHeight){
+            widthpadding = (myWidth-myHeight);
+            heightpadding = myHeight/10;
+            newwidth = myWidth - ((widthpadding) + (heightpadding));
+            newheight = myHeight - (heightpadding);
+        }else if(myHeight>myWidth){
+            widthpadding = myWidth/10;
+            heightpadding = (myHeight-myWidth);
+            newwidth = myWidth - ((widthpadding));
+            newheight = myHeight - ((heightpadding) + (widthpadding));
+        }else{
+            widthpadding = myWidth/10;
+            heightpadding = myHeight/10;
+            newwidth = myWidth - (widthpadding);
+            newheight = myHeight - (heightpadding);
+        }
+
+        this.myWidth = newwidth;
+        this.myHeight = newheight;
+
     }
 
     public ArrayList<Kattam> kattams;
@@ -92,31 +118,16 @@ public class Board extends JPanel {
     }
 
     protected int getOriginX() {
-        if (myWidth > myHeight) {
-            //Landscape
-            return (myWidth - myHeight) / 2;
-        }
-        return -1;
-
+        return  (widthpadding/2)+(heightpadding/2);
     }
 
     protected int getOriginY() {
-        if (myWidth > myHeight) {
-            //Landscape
-            return 0;
-        }
-        return -1;
-
+        return heightpadding/2;
     }
 
 
     protected int getSide() {
-        if (myWidth > myHeight) {
-            //Landscape
-            //System.out.println("Width " + myWidth + "Height " + myHeight + "Sides " + myHeight / 7);
-            return myHeight / 7;
-        }
-        return -1;
+        return (newheight-(heightpadding))/7;
 
     }
 
