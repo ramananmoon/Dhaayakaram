@@ -73,12 +73,10 @@ public class Board extends JPanel {
         s.navigate();
         PlayerN n = new PlayerN(this);
         n.navigate();
-/*
         PlayerW w = new PlayerW(this);
         w.navigate();
-
         PlayerE e = new PlayerE(this);
-        e.navigate();*/
+        e.navigate();
 
 
         for(int i = 0; i < kattams.size(); i++) {
